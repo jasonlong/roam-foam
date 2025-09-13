@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(npm run build:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl:*)",
+      "WebFetch(domain:api.github.com)",
+      "Read(//Users/jason/dev/RoamStudio/src/**)",
+      "WebFetch(domain:ui.shadcn.com)",
+      "WebSearch"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

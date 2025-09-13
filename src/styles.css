@@ -1,0 +1,550 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: theme("colors.white");
+  --bg-secondary: theme("colors.zinc.50");
+  --bg-tertiary: theme("colors.zinc.100");
+  --text-primary: theme("colors.zinc.800");
+  --text-secondary: theme("colors.zinc.500");
+  --text-muted: theme("colors.zinc.400");
+  --border-color: theme("colors.zinc.200");
+  --accent-color: theme("colors.teal.600");
+  --hover-bg: theme("colors.zinc.100");
+  --selection-bg: theme("colors.teal.100");
+
+  /* Typography variables */
+  --font-size-small: 12px;
+  --font-size-normal: 14px;
+  --font-size-medium: 16px;
+  --font-size-large: 18px;
+  --font-size-xl: 22px;
+  --font-size-xxl: 28px;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+
+  /* Spacing variables */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Block variables */
+  --block-padding-x: 8px;
+  --block-padding-y: 4px;
+  --bullet-size: 6px;
+  --indent-size: 12px;
+  --bullet-color: theme("colors.zinc.300");
+
+  /* Font stack variables */
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono:
+    "TX-02", "Monaco", "Menlo", Consolas, "Liberation Mono", "Courier New",
+    monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: theme("colors.zinc.900");
+    --bg-secondary: theme("colors.zinc.800");
+    --bg-tertiary: theme("colors.zinc.700");
+    --text-primary: theme("colors.zinc.300");
+    --text-secondary: theme("colors.zinc.400");
+    --text-muted: theme("colors.zinc.500");
+    --border-color: theme("colors.zinc.700");
+    --accent-color: theme("colors.teal.400");
+    --hover-bg: theme("colors.zinc.800");
+    --selection-bg: theme("colors.teal.800");
+    --bullet-color: theme("colors.zinc.600");
+  }
+}
+
+/* Base body styling */
+body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Universal text color fixes for dark mode */
+* {
+  color: var(--text-primary);
+}
+
+/* Ensure all common text elements use theme colors */
+div,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+textarea,
+input,
+.rm-block-text,
+.roam-block,
+.rm-page-ref,
+.rm-reference-item,
+.rm-query,
+.rm-embed-inner-block-text,
+.rm-title-display {
+  color: var(--text-primary) !important;
+}
+
+/* Base typography improvements */
+.roam-app {
+  font-size: var(--font-size-normal);
+  line-height: var(--line-height-normal);
+  font-family: var(--font-sans);
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.9px;
+}
+
+h1.rm-title-display {
+  font-weight: 600;
+}
+
+/* Headings */
+/* .rm-level1 { */
+/*   font-size: var(--font-size-xxl) !important; */
+/*   font-weight: 600; */
+/*   line-height: var(--line-height-tight); */
+/*   margin-bottom: var(--spacing-md); */
+/* } */
+/**/
+/* .rm-level2 { */
+/*   font-size: var(--font-size-xl) !important; */
+/*   font-weight: 500; */
+/*   line-height: var(--line-height-tight); */
+/*   margin-bottom: var(--spacing-sm); */
+/* } */
+/**/
+/* .rm-level3 { */
+/*   font-size: var(--font-size-large) !important; */
+/*   font-weight: 500; */
+/*   line-height: var(--line-height-normal); */
+/*   margin-bottom: var(--spacing-sm); */
+/* } */
+
+/* Roam theme overrides */
+.roam-app {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+
+  .roam-topbar {
+    background-color: var(--bg-secondary) !important;
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+
+    .bp3-input {
+      background-color: var(--bg-primary) !important;
+      color: var(--text-primary) !important;
+      border-color: var(--border-color) !important;
+      font-size: var(--font-size-normal);
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: 6px;
+      transition: all 0.2s ease-in-out;
+
+      &:focus {
+        border-color: var(--accent-color) !important;
+        box-shadow: 0 0 0 1px var(--accent-color) !important;
+      }
+
+      &::placeholder {
+        color: var(--text-muted) !important;
+      }
+    }
+  }
+
+  .roam-body {
+    background-color: var(--bg-primary);
+
+    .roam-main {
+      background-color: var(--bg-primary);
+
+      .roam-article {
+        background-color: var(--bg-primary);
+        max-width: 800px;
+        margin: 0 auto;
+        padding: var(--spacing-lg);
+
+        .roam-block-container {
+          .roam-block {
+            color: var(--text-primary);
+            padding: var(--block-padding-y) var(--block-padding-x);
+            margin: 2px 0;
+            border-radius: 3px;
+            transition: background-color 0.15s ease-in-out;
+
+            &:hover {
+              background-color: var(--hover-bg);
+            }
+          }
+
+          .rm-block-text {
+            color: var(--text-primary);
+            line-height: var(--line-height-relaxed);
+          }
+        }
+      }
+    }
+  }
+
+  /* .roam-block { */
+  /*   min-height: calc(1.5em + 10px) !important; */
+  /* } */
+
+  /* Enhanced bullet styling - target the inner element */
+  .rm-bullet__inner {
+    background-color: var(--bullet-color) !important;
+  }
+
+  .rm-bullet:hover .rm-bullet__inner {
+    background-color: var(--accent-color) !important;
+  }
+
+  .rm-bullet.rm-bullet--closed .rm-bullet__inner {
+    background-color: var(--text-primary) !important;
+  }
+
+  .rm-bullet {
+    cursor: pointer;
+  }
+
+  /* Fix multibar positioning - align with bullets */
+  .rm-multibar {
+    border-right: var(--border-color);
+  }
+
+  /* Hide default list bullets */
+  .roam-block-container,
+  .roam-block,
+  .rm-block,
+  .rm-block-main,
+  .rm-block-children,
+  ul,
+  ol,
+  li {
+    list-style: none !important;
+    list-style-type: none !important;
+  }
+
+  /* Remove list item pseudo-elements */
+  .roam-block-container li::before,
+  .roam-block li::before,
+  .rm-block li::before,
+  li::before {
+    display: none !important;
+  }
+
+  /* Block indentation - align with bullets */
+  .roam-block-container {
+    .rm-block-children {
+      /* margin-left: 12px; */
+      border-left: 1px solid var(--border-color);
+      padding-left: var(--indent-size);
+    }
+  }
+
+  /* Sidebar styling */
+  .roam-sidebar-container {
+    background-color: var(--bg-secondary) !important;
+    border-right: 1px solid var(--border-color);
+
+    .roam-sidebar-content {
+      background-color: var(--bg-secondary);
+
+      .rm-sidebar-window {
+        background-color: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        margin: var(--spacing-sm);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  /* Page references and links */
+  .rm-page-ref {
+    color: var(--accent-color) !important;
+    text-decoration: none;
+    transition: background-color 0.15s ease-in-out;
+
+    &:hover {
+      background-color: var(--selection-bg) !important;
+      text-decoration: none;
+    }
+  }
+
+  /* Page reference brackets */
+  .rm-page-ref__brackets {
+    color: theme("colors.zinc.300") !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .rm-page-ref__brackets {
+      color: theme("colors.zinc.600") !important;
+    }
+  }
+
+  /* Block references */
+  .rm-block-ref {
+    background-color: var(--bg-tertiary) !important;
+    border-left: 2px solid var(--accent-color);
+    padding: var(--spacing-sm);
+    margin: var(--spacing-xs) 0;
+    border-radius: 0 4px 4px 0;
+
+    &:hover {
+      background-color: var(--hover-bg) !important;
+    }
+  }
+
+  /* Search results and menus */
+  .rm-find-or-create-wrapper {
+    background-color: var(--bg-primary) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    .rm-menu-item {
+      color: var(--text-primary) !important;
+      padding: var(--spacing-sm) var(--spacing-md);
+
+      &:hover {
+        background-color: var(--hover-bg) !important;
+      }
+
+      &.rm-menu-item--selected {
+        background-color: var(--selection-bg) !important;
+      }
+    }
+  }
+
+  /* Code blocks */
+  .rm-code-block {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: var(--spacing-md);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-small);
+
+    pre {
+      color: var(--text-primary) !important;
+      background: transparent !important;
+    }
+  }
+
+  /* All code elements use monospace font */
+  code,
+  pre,
+  kbd,
+  samp,
+  .rm-code-block,
+  .CodeMirror,
+  textarea[data-gramm="false"] {
+    font-family: var(--font-mono) !important;
+  }
+
+  /* Inline code elements */
+  code {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    padding: 4px 2px !important;
+    border-radius: 3px !important;
+    font-size: 90%;
+    border: none;
+  }
+
+  /* Checkbox styling - shadcn/ui inspired */
+  .roam-block .check-container,
+  .rm-block .check-container,
+  .roam-block-container .check-container,
+  .roam-app .roam-block .check-container,
+  .roam-app .rm-block .check-container,
+  .roam-app .roam-block-container .check-container {
+    width: 18px !important;
+    height: 18px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    top: 2px !important;
+    position: relative !important;
+
+    .checkmark {
+      background-color: var(--bg-primary) !important;
+      border: 1px solid theme("colors.zinc.300") !important;
+      border-radius: 4px !important;
+      width: 16px !important;
+      height: 16px !important;
+      transition: all 0.2s ease-in-out !important;
+      position: relative !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+
+      &:after {
+        border-color: white !important;
+        width: 4px !important;
+        height: 8px !important;
+        border-width: 0 2px 2px 0 !important;
+      }
+    }
+
+    input:checked ~ .checkmark {
+      background-color: var(--accent-color) !important;
+      border-color: var(--accent-color) !important;
+
+      &:after {
+        content: "" !important;
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 12px !important;
+        height: 12px !important;
+        background: white !important;
+        mask: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.75.75 0 0 1-1.06 0l-3.5-3.5a.75.75 0 1 1 1.06-1.06L6 9.44l6.94-6.94a.75.75 0 0 1 1.06 1.06z'/%3e%3c/svg%3e") !important;
+        mask-size: contain !important;
+        mask-repeat: no-repeat !important;
+        mask-position: center !important;
+        border: none !important;
+      }
+    }
+
+    input:hover ~ .checkmark {
+      border-color: var(--accent-color) !important;
+      box-shadow: 0 0 0 2px theme("colors.zinc.100") !important;
+    }
+
+    input:focus ~ .checkmark {
+      border-color: var(--accent-color) !important;
+      box-shadow: 0 0 0 2px theme("colors.zinc.100") !important;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .roam-block .check-container,
+    .rm-block .check-container,
+    .roam-block-container .check-container {
+      .checkmark {
+        border-color: theme("colors.zinc.600") !important;
+      }
+
+      input:checked ~ .checkmark {
+        background-color: theme("colors.teal.600") !important;
+        border-color: theme("colors.teal.600") !important;
+
+        &:after {
+          background: white !important;
+        }
+      }
+
+      input:hover ~ .checkmark,
+      input:focus ~ .checkmark {
+        box-shadow: 0 0 0 2px theme("colors.zinc.800") !important;
+      }
+    }
+  }
+
+  /* Target the parent span that contains both checkbox and text */
+  span:has(.rm-done) {
+    text-decoration: line-through !important;
+    opacity: 0.7 !important;
+  }
+
+  /* Also target rm-done itself */
+  .rm-done {
+    text-decoration: line-through !important;
+    opacity: 0.7 !important;
+  }
+}
+
+/* Force checkbox sizing override - must come after all other styles */
+.check-container {
+  width: 18px !important;
+  height: 18px !important;
+  top: 2px !important;
+}
+
+.check-container .checkmark {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* Blueprint.js checkbox override for Roam */
+.bp3-control.bp3-checkbox {
+  width: 18px !important;
+  height: 18px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 2px !important;
+}
+
+.bp3-control.bp3-checkbox .bp3-control-indicator {
+  width: 16px !important;
+  height: 16px !important;
+  background-color: var(--bg-primary) !important;
+  border: 1px solid theme("colors.zinc.300") !important;
+  border-radius: 4px !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.bp3-control.bp3-checkbox input:checked ~ .bp3-control-indicator {
+  background-color: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+}
+
+.bp3-control.bp3-checkbox input:checked ~ .bp3-control-indicator::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 10px !important;
+  height: 10px !important;
+  background: white !important;
+  mask: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.75.75 0 0 1-1.06 0l-3.5-3.5a.75.75 0 1 1 1.06-1.06L6 9.44l6.94-6.94a.75.75 0 0 1 1.06 1.06z'/%3e%3c/svg%3e") !important;
+  mask-size: contain !important;
+  mask-repeat: no-repeat !important;
+  mask-position: center !important;
+  border: none !important;
+}
+
+.bp3-control.bp3-checkbox:hover input ~ .bp3-control-indicator {
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 0 0 2px theme("colors.zinc.100") !important;
+}
+
+.bp3-control.bp3-checkbox input:focus ~ .bp3-control-indicator {
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 0 0 2px theme("colors.zinc.100") !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bp3-control.bp3-checkbox .bp3-control-indicator {
+    border-color: theme("colors.zinc.600") !important;
+  }
+
+  .bp3-control.bp3-checkbox input:checked ~ .bp3-control-indicator {
+    background-color: theme("colors.teal.600") !important;
+    border-color: theme("colors.teal.600") !important;
+  }
+
+  .bp3-control.bp3-checkbox:hover input ~ .bp3-control-indicator,
+  .bp3-control.bp3-checkbox input:focus ~ .bp3-control-indicator {
+    box-shadow: 0 0 0 2px theme("colors.zinc.800") !important;
+  }
+}
