@@ -647,9 +647,7 @@ input,
   }
 /* Block indentation - align with bullets */
 .roam-app .roam-block-container .rm-block-children {
-      /* margin-left: 12px; */
       border-left: 1px solid var(--border-color);
-      padding-left: var(--indent-size);
     }
 /* Page references and links */
 .roam-app .rm-page-ref {

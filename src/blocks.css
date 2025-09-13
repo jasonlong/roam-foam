@@ -105,9 +105,7 @@
   /* Block indentation - align with bullets */
   .roam-block-container {
     .rm-block-children {
-      /* margin-left: 12px; */
       border-left: 1px solid var(--border-color);
-      padding-left: var(--indent-size);
     }
   }
 

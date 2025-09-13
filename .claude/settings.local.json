@@ -1,15 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir:*)",
-      "WebFetch(domain:github.com)",
-      "Bash(npm run build:*)",
-      "WebFetch(domain:raw.githubusercontent.com)",
-      "Bash(curl:*)",
-      "WebFetch(domain:api.github.com)",
-      "Read(//Users/jason/dev/RoamStudio/src/**)",
-      "WebFetch(domain:ui.shadcn.com)",
-      "WebSearch"
+      "Read(//Users/jason/dev/blueprint/**)",
+      "Read(//Users/jason/dev/RoamStudio/**)",
+      "Read(//Users/jason/dev/roam-css-system/**)",
+      "Bash(tree:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Read(//Users/jason/dev/**)"
     ],
     "deny": [],
     "ask": []
