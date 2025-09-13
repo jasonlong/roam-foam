@@ -1,0 +1,191 @@
+/* Roam layout and block styling */
+.roam-app {
+  .roam-topbar {
+    background-color: var(--bg-secondary) !important;
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+
+    .bp3-input {
+      background-color: var(--bg-primary) !important;
+      color: var(--text-primary) !important;
+      border-color: var(--border-color) !important;
+      font-size: var(--font-size-normal);
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: 6px;
+      transition: all 0.2s ease-in-out;
+
+      &:focus {
+        border-color: var(--accent-color) !important;
+        box-shadow: 0 0 0 1px var(--accent-color) !important;
+      }
+
+      &::placeholder {
+        color: var(--text-muted) !important;
+      }
+    }
+  }
+
+  .roam-body {
+    background-color: var(--bg-primary);
+
+    .roam-main {
+      background-color: var(--bg-primary);
+
+      .roam-article {
+        background-color: var(--bg-primary);
+        max-width: 800px;
+        margin: 0 auto;
+        padding: var(--spacing-lg);
+
+        .roam-block-container {
+          .roam-block {
+            color: var(--text-primary);
+            padding: var(--block-padding-y) var(--block-padding-x);
+            margin: 2px 0;
+            border-radius: 3px;
+            transition: background-color 0.15s ease-in-out;
+
+            &:hover {
+              background-color: var(--hover-bg);
+            }
+          }
+
+          .rm-block-text {
+            color: var(--text-primary);
+            line-height: var(--line-height-relaxed);
+          }
+        }
+      }
+    }
+  }
+
+  /* Enhanced bullet styling - target the inner element */
+  .rm-bullet__inner {
+    background-color: var(--bullet-color) !important;
+  }
+
+  .rm-bullet:hover .rm-bullet__inner {
+    background-color: var(--accent-color) !important;
+  }
+
+  .rm-bullet.rm-bullet--closed .rm-bullet__inner {
+    background-color: var(--text-primary) !important;
+  }
+
+  .rm-bullet {
+    cursor: pointer;
+  }
+
+  /* Fix multibar positioning - align with bullets */
+  .rm-multibar {
+    border-right: var(--border-color);
+  }
+
+  /* Hide default list bullets */
+  .roam-block-container,
+  .roam-block,
+  .rm-block,
+  .rm-block-main,
+  .rm-block-children,
+  ul,
+  ol,
+  li {
+    list-style: none !important;
+    list-style-type: none !important;
+  }
+
+  /* Remove list item pseudo-elements */
+  .roam-block-container li::before,
+  .roam-block li::before,
+  .rm-block li::before,
+  li::before {
+    display: none !important;
+  }
+
+  /* Block indentation - align with bullets */
+  .roam-block-container {
+    .rm-block-children {
+      /* margin-left: 12px; */
+      border-left: 1px solid var(--border-color);
+      padding-left: var(--indent-size);
+    }
+  }
+
+  /* Page references and links */
+  .rm-page-ref {
+    color: var(--accent-color) !important;
+    text-decoration: none;
+  }
+
+  /* Page reference brackets */
+  .rm-page-ref__brackets {
+    color: var(--text-subtle) !important;
+  }
+
+  /* Block references */
+  .rm-block-ref {
+    background-color: var(--bg-tertiary) !important;
+    border-left: 2px solid var(--accent-color);
+    padding: var(--spacing-sm);
+    margin: var(--spacing-xs) 0;
+    border-radius: 0 4px 4px 0;
+
+    &:hover {
+      background-color: var(--hover-bg) !important;
+    }
+  }
+
+  /* Daily notes log page */
+  .roam-log-page {
+    border-color: var(--border-color) !important;
+  }
+
+  /* Block highlight colors */
+  .block-highlight-blue {
+    background-color: var(--bg-tertiary) !important;
+  }
+}
+
+/* Sidebar styling */
+#right-sidebar,
+.roam-sidebar-container {
+  background-color: var(--bg-secondary) !important;
+  border-right: 1px solid var(--border-color);
+
+  .roam-sidebar-content {
+    background-color: var(--bg-secondary);
+
+    .rm-sidebar-window {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin: var(--spacing-sm);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .rm-reference-item {
+    background-color: var(--bg-primary) !important;
+  }
+}
+
+.rm-reference-container,
+.rm-mentions {
+  @apply space-y-6;
+}
+
+.rm-reference-container > div strong {
+  @apply font-medium;
+  color: var(--text-secondary);
+}
+
+.rm-ref-page-view-title {
+  font-size: var(--font-size-normal) !important;
+  @apply font-medium;
+}
+
+.rm-reference-item {
+  background-color: var(--bg-secondary);
+  @apply rounded;
+  @apply py-3;
+}

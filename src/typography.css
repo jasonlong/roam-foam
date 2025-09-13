@@ -1,0 +1,72 @@
+/* Typography, Headings, and Code */
+
+h1 {
+  font-size: 24px;
+  letter-spacing: -0.9px;
+}
+
+h1.rm-title-display {
+  font-weight: 600;
+}
+
+/* Headings */
+/* .rm-level1 { */
+/*   font-size: var(--font-size-xxl) !important; */
+/*   font-weight: 600; */
+/*   line-height: var(--line-height-tight); */
+/*   margin-bottom: var(--spacing-md); */
+/* } */
+/**/
+/* .rm-level2 { */
+/*   font-size: var(--font-size-xl) !important; */
+/*   font-weight: 500; */
+/*   line-height: var(--line-height-tight); */
+/*   margin-bottom: var(--spacing-sm); */
+/* } */
+/**/
+/* .rm-level3 { */
+/*   font-size: var(--font-size-large) !important; */
+/*   font-weight: 500; */
+/*   line-height: var(--line-height-normal); */
+/*   margin-bottom: var(--spacing-sm); */
+/* } */
+/**/
+
+.roam-app {
+  /* Code blocks */
+  .rm-code-block {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: var(--spacing-md);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-small);
+
+    pre {
+      color: var(--text-primary) !important;
+      background: transparent !important;
+    }
+  }
+
+  /* All code elements use monospace font */
+  code,
+  pre,
+  kbd,
+  samp,
+  .rm-code-block,
+  .CodeMirror,
+  textarea[data-gramm="false"] {
+    font-family: var(--font-mono) !important;
+  }
+
+  /* Inline code elements */
+  code {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    padding: 4px 2px !important;
+    border-radius: 3px !important;
+    font-size: 90%;
+    border: none;
+  }
+}
+
