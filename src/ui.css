@@ -69,5 +69,21 @@
     text-decoration: line-through !important;
     opacity: 0.7 !important;
   }
+
+  /* Target blocks that contain "DONE" in their page links or path page links */
+  [data-page-links*="DONE"],
+  [data-path-page-links*="DONE"] {
+    text-decoration: line-through !important;
+    opacity: 0.7 !important;
+  }
+
+  /* Keep checkboxes at normal opacity within completed blocks */
+  [data-page-links*="DONE"] .check-container,
+  [data-page-links*="DONE"] .rm-checkbox,
+  [data-path-page-links*="DONE"] .check-container,
+  [data-path-page-links*="DONE"] .rm-checkbox {
+    opacity: 1 !important;
+    text-decoration: none !important;
+  }
 }
 

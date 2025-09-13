@@ -777,6 +777,20 @@ input,
     text-decoration: line-through !important;
     opacity: 0.7 !important;
   }
+/* Target blocks that contain "DONE" in their page links or path page links */
+.roam-app [data-page-links*="DONE"],
+  .roam-app [data-path-page-links*="DONE"] {
+    text-decoration: line-through !important;
+    opacity: 0.7 !important;
+  }
+/* Keep checkboxes at normal opacity within completed blocks */
+.roam-app [data-page-links*="DONE"] .check-container,
+  .roam-app [data-page-links*="DONE"] .rm-checkbox,
+  .roam-app [data-path-page-links*="DONE"] .check-container,
+  .roam-app [data-path-page-links*="DONE"] .rm-checkbox {
+    opacity: 1 !important;
+    text-decoration: none !important;
+  }
 /* Typography, Headings, and Code */
 h1 {
   font-size: 24px;
