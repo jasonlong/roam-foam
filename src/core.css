@@ -78,31 +78,8 @@ body {
   color: var(--text-primary) !important;
 }
 
-/* Universal text color fixes for dark mode */
-* {
-  color: var(--text-primary);
-}
-
-/* Ensure all common text elements use theme colors */
-div,
-span,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-textarea,
-input,
-.rm-block-text,
-.roam-block,
-.rm-page-ref,
-.rm-reference-item,
-.rm-query,
-.rm-embed-inner-block-text,
-.rm-title-display {
-  color: var(--text-primary) !important;
+a {
+  color: var(--accent-color) !important;
 }
 
 /* Base typography improvements */

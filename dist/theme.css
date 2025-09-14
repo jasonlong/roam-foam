@@ -426,6 +426,9 @@ video {
 [hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
+.visible {
+  visibility: visible;
+}
 .absolute {
   position: absolute;
 }
@@ -528,30 +531,8 @@ body {
   background-color: var(--bg-primary) !important;
   color: var(--text-primary) !important;
 }
-/* Universal text color fixes for dark mode */
-* {
-  color: var(--text-primary);
-}
-/* Ensure all common text elements use theme colors */
-div,
-span,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-textarea,
-input,
-.rm-block-text,
-.roam-block,
-.rm-page-ref,
-.rm-reference-item,
-.rm-query,
-.rm-embed-inner-block-text,
-.rm-title-display {
-  color: var(--text-primary) !important;
+a {
+  color: var(--accent-color) !important;
 }
 /* Base typography improvements */
 .roam-app {
@@ -625,6 +606,41 @@ input,
 /* Fix multibar positioning - align with bullets */
 .roam-app .rm-multibar {
     border-right: var(--border-color);
+  }
+/* Mobile block optimizations - based on RoamStudio approach */
+@media screen and (max-width: 600px) {
+.roam-app {
+    /* Move chevron/caret to the right side for better mobile UX */
+    
+    /* Reduce left padding, increase right padding for chevron space */
+    
+    /* Ensure carets are visible on collapsed blocks */
+    
+    /* Adjust bullet positioning for mobile */
+}
+    .roam-app .block-expand .rm-caret {
+      font-size: 24px;
+      height: 24px !important;
+    }
+    
+    .roam-app .block-expand {
+      display: block;
+      float: right;
+      right: -16px;
+      position: absolute;
+    }
+    .roam-app .roam-article {
+      padding-left: 16px !important;
+      padding-right: 32px !important;
+    }
+    .roam-app .rm-block--closed:has(.rm-bullet.rm-bullet--closed) > .rm-block-main.rm-block__self .rm-caret.rm-caret-hidden,
+    .roam-app .roam-block-container:has(.rm-block-children > .roam-block-container) > .rm-block-main.rm-block__self .rm-caret.rm-caret-hidden {
+      opacity: 1;
+    }
+    .roam-app .rm-bullet, 
+    .roam-app .rm-bullet.rm-bullet--closed {
+      margin-left: 16px;
+    }
   }
 /* Hide default list bullets */
 .roam-app .roam-block-container,
@@ -791,6 +807,17 @@ input,
     opacity: 1 !important;
     text-decoration: none !important;
   }
+/* Buttons */
+.bp3-button {
+  color: var(--text-secondary) !important;
+  padding: 0 !important;
+}
+.bp3-button:hover {
+  background-color: var(--bg-tertiary) !important;
+}
+.bp3-popover-target {
+  width: 24px;
+}
 /* Typography, Headings, and Code */
 h1 {
   font-size: 24px;

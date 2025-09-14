@@ -5,15 +5,20 @@
   "main": "server.js",
   "scripts": {
     "build": "postcss src/main.css -o dist/theme.css",
+    "build:icons": "node build-icons.js",
+    "build:all": "npm run build:icons && npm run build",
     "watch": "postcss src/main.css -o dist/theme.css --watch",
+    "watch:icons": "chokidar 'assets/icons/source/**/*.svg' 'assets/icons/mappings.json' 'assets/js/src/icon-replacer.template.js' -c 'npm run build:icons'",
     "serve": "node server.js",
-    "dev": "npm run serve & npm run watch"
+    "dev": "npm run serve & npm run watch",
+    "dev:full": "npm run serve & npm run watch & npm run watch:icons"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "chokidar-cli": "^3.0.0",
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",

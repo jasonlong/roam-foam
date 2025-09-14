@@ -11,11 +11,21 @@ app.use(cors());
 // Serve static files from the dist directory
 app.use('/dist', express.static(path.join(__dirname, 'dist')));
 
+// Serve static files from the assets directory (for JS, icons, etc.)
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
 // Serve the theme CSS with proper headers
 app.get('/theme.css', (req, res) => {
   res.setHeader('Content-Type', 'text/css');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.sendFile(path.join(__dirname, 'dist', 'theme.css'));
+});
+
+// Serve the icon replacer JavaScript
+app.get('/icon-replacer.js', (req, res) => {
+  res.setHeader('Content-Type', 'application/javascript');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.sendFile(path.join(__dirname, 'assets', 'js', 'icon-replacer.js'));
 });
 
 app.listen(PORT, () => {

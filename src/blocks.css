@@ -81,6 +81,40 @@
     border-right: var(--border-color);
   }
 
+  /* Mobile block optimizations - based on RoamStudio approach */
+  @media screen and (max-width: 600px) {
+    /* Move chevron/caret to the right side for better mobile UX */
+    .block-expand .rm-caret {
+      font-size: 24px;
+      height: 24px !important;
+    }
+    
+    .block-expand {
+      display: block;
+      float: right;
+      right: -16px;
+      position: absolute;
+    }
+    
+    /* Reduce left padding, increase right padding for chevron space */
+    .roam-article {
+      padding-left: 16px !important;
+      padding-right: 32px !important;
+    }
+    
+    /* Ensure carets are visible on collapsed blocks */
+    .rm-block--closed:has(.rm-bullet.rm-bullet--closed) > .rm-block-main.rm-block__self .rm-caret.rm-caret-hidden,
+    .roam-block-container:has(.rm-block-children > .roam-block-container) > .rm-block-main.rm-block__self .rm-caret.rm-caret-hidden {
+      opacity: 1;
+    }
+    
+    /* Adjust bullet positioning for mobile */
+    .rm-bullet, 
+    .rm-bullet.rm-bullet--closed {
+      margin-left: 16px;
+    }
+  }
+
   /* Hide default list bullets */
   .roam-block-container,
   .roam-block,

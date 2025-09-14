@@ -57,7 +57,6 @@
     }
   }
 
-
   /* Target the parent span that contains both checkbox and text */
   span:has(.rm-done) {
     text-decoration: line-through !important;
@@ -87,3 +86,16 @@
   }
 }
 
+/* Buttons */
+.bp3-button {
+  color: var(--text-secondary) !important;
+  padding: 0 !important;
+}
+
+.bp3-button:hover {
+  background-color: var(--bg-tertiary) !important;
+}
+
+.bp3-popover-target {
+  width: 24px;
+}

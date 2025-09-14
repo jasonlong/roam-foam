@@ -98,6 +98,14 @@ roam-foam/
 - Comprehensive code styling (`code`, `pre`, `kbd`, `samp`, `.CodeMirror`, etc.)
 - Inline code: secondary background, 90% font size, no border
 
+### 5. Mobile Block Optimizations (600px and below)
+- **Right-side chevrons**: Expand/collapse carets moved to right with `float: right` + `position: absolute`
+- **Larger touch targets**: 24px font size and height for better mobile interaction
+- **Reduced left padding**: Main article padding reduced to 16px for more content space
+- **Increased right padding**: 32px right padding to accommodate moved chevrons
+- **Enhanced caret visibility**: Forces hidden carets to be visible on collapsed blocks
+- **Adjusted bullet positioning**: 16px left margin to maintain visual hierarchy
+
 ## Development Workflow
 
 ### Build Commands
@@ -112,6 +120,26 @@ npm run dev      # Start both server and watch
 - Express server on port 3000
 - CORS enabled for Roam integration
 - CSS served at `http://localhost:3000/theme.css`
+
+### Mobile Testing Setup
+To test the theme on mobile devices, expose the local server via tunnel:
+
+```bash
+# Install localtunnel (one-time setup)
+npm install -g localtunnel
+
+# Start tunnel (while dev server is running on port 3000)
+lt --port 3000 --subdomain roamfoam
+```
+
+This creates a public URL: `https://roamfoam.loca.lt/theme.css`
+
+**Mobile Testing Steps:**
+1. Start development server: `npm run serve`
+2. Start tunnel: `lt --port 3000 --subdomain roamfoam`
+3. Update Roam CSS import on phone: `@import url("https://roamfoam.loca.lt/theme.css");`
+4. Test mobile optimizations (chevrons on right, reduced padding, larger touch targets)
+5. When done, switch back to local: `@import url("http://localhost:3000/theme.css");`
 
 ### CSS Processing
 1. **PostCSS Import**: Resolves @import statements
